@@ -17,4 +17,6 @@ Auth::routes();
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/users/store', 'Auth\RegisterController@register');
+Route::get('users/store', 'Auth\RegisterController@register');
+
+Route::get('games', 'Api\GameController@index')->name('games.index');
