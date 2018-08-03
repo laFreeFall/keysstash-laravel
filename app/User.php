@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'created_at' => 'datetime:d M Y',
     ];
+
+    /**
+     * Get games associated with the user.
+     */
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
 }
