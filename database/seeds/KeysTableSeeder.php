@@ -11,27 +11,14 @@ class KeysTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('keys')->insert([
-            [
-                'game_id' => 1,
-                'body' => '12345-12345-12345'
-            ],
-            [
-                'game_id' => 1,
-                'body' => '23456-23456-23456'
-            ],
-            [
-                'game_id' => 1,
-                'body' => '34567-34567-34567'
-            ],
-            [
-                'game_id' => 2,
-                'body' => 'ABCDE-ABCDE-ABCDE'
-            ],
-            [
-                'game_id' => 2,
-                'body' => 'BCDEF-BCDEF-BCDEF'
-            ]
-        ]);
+        $keys = [];
+        for($i = 0; $i < 30; $i++) {
+            $keys[] = [
+                'game_id' => rand(1, 9),
+                'body' => rand(10000, 99999) . '-' . rand(10000, 99999) . '-' . rand(10000, 99999)
+            ];
+        }
+
+        DB::table('keys')->insert($keys);
     }
 }
