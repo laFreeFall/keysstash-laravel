@@ -16,7 +16,7 @@ class CreateSteamGamesTable extends Migration
         Schema::create('steam_games', function (Blueprint $table) {
             $table->integer('appid')->unique();
             $table->primary('appid');
-            $table->string('title');
+            $table->string('name');
         });
     }
 
@@ -27,6 +27,8 @@ class CreateSteamGamesTable extends Migration
      */
     public function down()
     {
+//        Uncomment line below if you want to drop your table
+//        It's commented for now because it's resource-consuming task to fetch all the games from Steam every migration
         Schema::dropIfExists('steam_games');
     }
 }

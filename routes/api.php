@@ -24,4 +24,6 @@ Route::middleware(['auth:api'])->group(function() {
     Route::post('keys/{key}/use', 'Api\KeyUseController@store')->name('keys.use.store');
     Route::delete('keys/{key}/use', 'Api\KeyUseController@destroy')->name('keys.use.destroy');
     Route::post('games/{game}/keys', 'Api\KeyController@store')->name('keys.store');
+    Route::get('games/search', 'Api\GameController@search')->name('games.search');
+    Route::post('games', 'Api\GameController@store')->name('games.store');
 });
