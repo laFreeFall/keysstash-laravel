@@ -1,6 +1,37 @@
 # KeysStash Laravel
 ## Backend part of the [KeysStash SPA](https://github.com/laFreeFall/keysstash-vue) built with Laravel
 
+## Installation
+Download the project
+`git clone lafreefall/keysstash-laravel projectname`
+
+`cd projectname`
+
+1. Copy .env.example, rename to .env and fill with your environment data
+`cp .env.example .env`
+2. Generate app key
+`php artisan key:generate`
+
+3. Install Composer
+`composer install`
+
+4. Create database and put its name in your `.env` file
+
+5. Create and populate database tables
+`php artisan migrate --seed`
+
+6. Install passport
+`php artisan passport:install`
+
+7. Copy Password Grant client from passport and paste it in `keysstash-vue/src/store/modules/users.js` on the 5th line.
+`clientSecret: 'YOUR_SECRET',`
+
+8. Host
+`php artisan server` to start on [localhost:8000](http://localhost:8000/)
+
+9. Copy your local server url and paste it in `keysstash-vue/src/main.js` on the 20nd line.
+`axios.defaults.baseURL = 'YOUR_BACKEND_URL'`
+
 ## Available endpoints
 
 | Action          | Request type | Endpoint           | Request data                                                                                                                               | Response                                                                     |
